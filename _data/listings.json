@@ -1,0 +1,26 @@
+{
+  "listings": [
+    {
+      "slug": "add-your-first-listing",
+      "title": "Add Your First Listing Here",
+      "status": "For Sale",
+      "price": "$—",
+      "city": "Redding",
+      "state": "CA",
+      "zip": "96002",
+      "beds": 0,
+      "baths": "—",
+      "sqft": "—",
+      "lot": "—",
+      "yearBuilt": "—",
+      "mls": "",
+      "type": "Single Family",
+      "heroImage": "",
+      "description": "## Replace This Listing\n\nLog into the admin panel at **/admin** and click **Property Listings** to add Grace's real properties.\n\nEach listing gets its own shareable landing page — perfect for social media, texting to clients, or running ads.\n\n### What to include\n\n- Great hero photo\n- Price and key stats\n- A compelling description\n- Key features list\n- Zillow or MLS link",
+      "features": ["Add key features here", "Like Open floor plan", "Mountain views", "Updated kitchen"],
+      "zillowUrl": "https://www.zillow.com/profile/graceandersonshasta",
+      "mlsUrl": "",
+      "featured": true
+    }
+  ]
+}

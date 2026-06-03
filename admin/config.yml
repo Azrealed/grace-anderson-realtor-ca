@@ -1,0 +1,186 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+site_url: https://gracesellsredding.com
+display_url: https://gracesellsredding.com
+
+# ─── Collections ────────────────────────────────────────────────────────────
+collections:
+
+  # ── BLOG POSTS ─────────────────────────────────────────────────────────────
+  - name: blog
+    label: Blog Posts
+    files:
+      - name: posts
+        label: All Blog Posts
+        file: _data/posts.json
+        format: json
+        description: "Write posts about the Shasta County market, buying/selling tips, and local community guides."
+        fields:
+          - name: posts
+            label: Posts
+            label_singular: Post
+            widget: list
+            summary: "{{fields.title}} — {{fields.date}}"
+            minimize_collapsed: true
+            fields:
+              - label: Slug (URL)
+                name: slug
+                widget: string
+                hint: "Short, URL-safe. E.g. 5-tips-for-buyers-in-redding (no spaces, lowercase, hyphens only)"
+              - label: Title
+                name: title
+                widget: string
+              - label: Publish Date
+                name: date
+                widget: datetime
+                date_format: "YYYY-MM-DD"
+                time_format: false
+              - label: Category
+                name: category
+                widget: select
+                options:
+                  - Market Updates
+                  - Buying Tips
+                  - Selling Tips
+                  - Community Guide
+                  - Investment
+              - label: Excerpt (short summary shown on cards)
+                name: excerpt
+                widget: text
+                hint: "2–3 sentences. Shown on the blog grid and in search results."
+              - label: Featured Image
+                name: image
+                widget: image
+                required: false
+                hint: "Upload a header image for this post. Recommended 1200×630."
+              - label: Image Alt Text
+                name: imageAlt
+                widget: string
+                required: false
+              - label: Body
+                name: body
+                widget: markdown
+                hint: "Write your full post here. Use ## for headings, **bold**, and - for bullet lists."
+              - label: Featured Post (shows large at top of blog)
+                name: featured
+                widget: boolean
+                default: false
+
+  # ── PROPERTY LISTINGS ──────────────────────────────────────────────────────
+  - name: listings
+    label: Property Listings
+    files:
+      - name: properties
+        label: All Listings
+        file: _data/listings.json
+        format: json
+        description: "Add and manage individual property listings. Each one gets its own shareable landing page."
+        fields:
+          - name: listings
+            label: Listings
+            label_singular: Listing
+            widget: list
+            summary: "{{fields.title}} — {{fields.price}} ({{fields.status}})"
+            minimize_collapsed: true
+            fields:
+              - label: Property Address
+                name: title
+                widget: string
+                hint: "Full address. E.g. 1234 Ridge View Dr, Redding, CA 96002"
+              - label: URL Slug
+                name: slug
+                widget: string
+                hint: "Short URL. E.g. 1234-ridge-view-redding (lowercase, hyphens, no spaces)"
+              - label: Status
+                name: status
+                widget: select
+                options:
+                  - For Sale
+                  - Pending
+                  - Sold
+                  - Price Reduced
+                  - Coming Soon
+              - label: Price
+                name: price
+                widget: string
+                hint: "E.g. $549,000"
+              - label: City
+                name: city
+                widget: string
+                default: Redding
+              - label: State
+                name: state
+                widget: string
+                default: CA
+              - label: ZIP
+                name: zip
+                widget: string
+              - label: Beds
+                name: beds
+                widget: number
+              - label: Baths
+                name: baths
+                widget: string
+                hint: "E.g. 2 or 2.5"
+              - label: Square Feet
+                name: sqft
+                widget: string
+                hint: "E.g. 2,240"
+              - label: Lot Size
+                name: lot
+                widget: string
+                required: false
+                hint: "E.g. 0.28 acres"
+              - label: Year Built
+                name: yearBuilt
+                widget: string
+                required: false
+              - label: MLS Number
+                name: mls
+                widget: string
+                required: false
+              - label: Property Type
+                name: type
+                widget: select
+                options:
+                  - Single Family
+                  - Condo
+                  - Townhouse
+                  - Land / Lot
+                  - Multi-Family
+                  - Commercial
+              - label: Hero Photo
+                name: heroImage
+                widget: image
+                required: false
+                hint: "Main property photo. Upload a high-quality image (1600×1067 recommended)."
+              - label: Description
+                name: description
+                widget: markdown
+                hint: "Describe the property. Use ## for section headings, bullet lists for features."
+              - label: Key Features (quick-scan list)
+                name: features
+                widget: list
+                required: false
+                hint: "Short features shown as tags. E.g. Open floor plan, Mountain views, Two-car garage"
+                field:
+                  label: Feature
+                  name: feature
+                  widget: string
+              - label: Zillow Link
+                name: zillowUrl
+                widget: string
+                required: false
+              - label: MLS Link
+                name: mlsUrl
+                widget: string
+                required: false
+              - label: Show on Homepage Featured Section
+                name: featured
+                widget: boolean
+                default: false
